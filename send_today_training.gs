@@ -8,6 +8,10 @@ function sendTodayTraining() {
       5: [45]
   };
 
+  let morning_training = {
+      0: [81]
+  }
+
   var now = new Date();
   let today = now.getDay()
 
@@ -17,6 +21,13 @@ function sendTodayTraining() {
       sendMessageReply(message, e);
     });
   }
+
+
+  if (today in morning_training) {
+    morning_training[today].forEach((e) => {
+      var message = `Morning workout`;
+      sendMessageReply(message, e);
+    });
+  }
  
 }
-
